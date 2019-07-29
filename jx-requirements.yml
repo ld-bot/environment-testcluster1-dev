@@ -1,17 +1,22 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: testcluster1
+  environmentGitOwner: ldon-dev-org
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: ldonley
   provider: gke
-  zone: ""
-gitops: true
+  zone: us-east1-b
 environments:
 - key: dev
 - key: staging
 - key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.73.21.200.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -21,13 +26,13 @@ secretStorage: vault
 storage:
   logs:
     enabled: true
-    url: ""
+    url: gs://testcluster1-logs-2b581730-fbe0-4705-92aa-06edb979c440
   reports:
     enabled: true
-    url: ""
+    url: gs://testcluster1-reports-fa37e27f-73bd-4f15-a67d-05dbd8be06
   repository:
     enabled: true
-    url: ""
+    url: gs://testcluster1-repository-28f81a25-9035-4684-95a5-c748d8e
 versionStream:
   ref: master
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
